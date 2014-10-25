@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="peo">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="<?php echo base_url('complementos/bootstrap/css/bootstrap.css');?>">
+	<script src="<?php echo base_url('complementos/bootstrap/js/angular.js');?>"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+	<script src="<?php echo base_url('complementos/PapaParse/papaparse.min.js');?>"></script> 
+	<script src="<?php echo base_url('complementos/bootstrap/js/flugel.js');?>"></script>
+</head>
+<header>
+	<nav class="navbar navbar-default"></nav>
+</header>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+
+				<div class="container-fluid">
+					<div class="row">
+
+						<div class="col-md-12 bg-success">
+
+							<h2>FORMULARIO</h2>
+
+							<form action="" class="form" ng-controller="NuevoController" ng-submit="addperson()">
+								<div class="form-group">
+									<label for="Nombre">Nombre</label>
+									<input ng-model="persona.nombre" name="Nombre" type="text" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="Apellido">Apellido</label>
+									<input ng-model="persona.apellido" type="text" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="edad">Edad</label>
+									<input ng-model="persona.edad" type="text" class="form-control">
+								</div>
+								<div class="form-group">
+									<input type="submit" class="btn btn-success" value="Presentar">
+								</div>
+								<blockquote>
+									<table class="table">
+										<tbody>
+											<tr>
+									<th>{{persona.nombre}}</th>
+									<th>{{persona.apellido}}</th>
+									<th>{{persona.edad}}</th>
+									</tr>
+
+
+										</tbody>
+									</table>
+								</blockquote>
+							</form>
+
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="col-md-5">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12" ng-controller="FlugelController">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Edad</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-model="personas"ng-repeat="persona in personas">
+									<th contenteditable="true">{{persona.nombre}}</th>
+									<th>{{persona.apellido}}</th>
+									<th>{{persona.edad}}</th>
+									</tr>
+										
+								</tbody>
+
+							</table>
+							{{personas}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4" ng-controller="CsvController">
+
+				<div class="row">
+					<div class="col-md-12">
+						<input type="file" id="archivo-csv">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+									<table class="table table-hover">
+										<thead></thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+									<button ng-click="trans()">convertir</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+
+		</div>
+	</div>
+	
+</body>
+<span></span>
+</html>
